@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031) -->
+<html ng-app="MyFirstApp">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <title>Angular primeros pasos</title>
+        
+        <link rel="stylesheet" href="assets/css/styles.css"></link>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+        <script>window.angular || document.write('<script src="assets/lib/angular.min.js"><\/script>');</script>
+        <script src="assets/js/controller1.js"></script>
+    </head>
+
+    <body ng-controller="AlumnosController">
+        <h1>Proyectos</h1>
+        <center><button ng-click="ShowForm()" ng-hide="formVisibility">Añadir Contacto</button></center>
+        <div ng-show="formVisibility" class="wrapper">
+            <h2>Añadir proyecto</h2>
+            Nombre: <input type="text" ng-model="nuevoAlumno.nombre"></input>
+            Descripción: <input type="text" ng-model="nuevoAlumno.descripcion"></input>
+            <button ng-click="Save()">Guardar</button>
+        </div>
+        <br/>
+        <div class="wrapper">
+            <div class="contact-item" ng-repeat="alumno in alumnos | orderBy:'nombre'">
+                <div class="nombre">{{alumno.nombre}}</div>
+                <span class="descripcion">{{alumno.descripcion}}</span>
+                <button>></button>
+            </div>
+        </div>
+        
+    </body>
+</html>
